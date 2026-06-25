@@ -1,6 +1,6 @@
 # Test Automation Portfolio – Devbrat Verma
 
-A multi-language, enterprise-grade test automation portfolio showcasing scalable QA automation frameworks built using **Playwright, Cypress, SpecFlow, Reqnroll, Serenity BDD, TypeScript, C#, Java, Python, and Groovy**.
+A multi-language, enterprise-grade test automation portfolio showcasing scalable QA automation frameworks built using **Playwright, Cypress, SpecFlow, ReqNRoll, Serenity BDD, TypeScript, C#, Java, Python, and Groovy**.
 
 This repository demonstrates real-world **Quality Engineering practices** across UI, API, and end-to-end automation, structured as a modular monorepo containing multiple automation frameworks.
 
@@ -8,50 +8,16 @@ This repository demonstrates real-world **Quality Engineering practices** across
 
 ## 📁 Repository Structure
 
-This portfolio is organized into independent automation frameworks:
+This portfolio is organized into independent automation frameworks, each representing a production-style automation solution demonstrating framework design, maintainability, scalability, and quality engineering best practices.
 
-automation-portfolio/
+| Category | Frameworks |
+|-----------|------------|
+| .NET Automation | Playwright C#, Playwright + ReqNRoll, Playwright + SpecFlow, RestSharp API Framework |
+| Java Automation | Serenity BDD + Selenium, Playwright Java, RestAssured API Framework |
+| JavaScript / TypeScript Automation | Playwright TypeScript, Cypress Framework, Mocha-Chai + Selenium |
+| Python Automation | Playwright + PyTest, API Automation with PyTest |
 
-# Automation Portfolio
-
-Collection of enterprise-grade automation frameworks built across multiple technology stacks.
-
-## .NET Automation
-
-- Playwright + C#
-- Playwright + ReqNRoll
-- Playwright + SpecFlow
-- RestSharp API Framework
-
-## Java Automation
-
-- Serenity BDD + Selenium
-- Playwright Java
-- RestAssured API Framework
-
-## JavaScript / TypeScript Automation
-
-- Playwright TypeScript
-- Cypress Framework
-- Mocha-Chai + Selenium
-
-## Python Automation
-
-- Playwright + PyTest
-- API Automation with PyTest
-
-## Key Skills Demonstrated
-
-- UI Automation
-- API Automation
-- BDD Frameworks
-- Page Object Model
-- CI/CD Integration
-- Parallel Execution
-- Reporting & Logging
-- Test Data Management
-
-Each folder represents a **separate automation framework implementation**, demonstrating scalable architecture, reusable design patterns, and enterprise QA best practices.
+Each folder represents a **separate automation framework implementation**, demonstrating reusable architecture patterns, enterprise automation standards, and modern QA engineering practices.
 
 ---
 
@@ -61,60 +27,194 @@ This portfolio demonstrates my expertise in designing and implementing robust au
 
 - Scalable test architecture design
 - Multi-language automation frameworks
-- UI + API + End-to-End test coverage
+- UI, API, and End-to-End test automation
 - BDD-based and hybrid automation strategies
 - CI/CD-integrated test execution pipelines
+- Cross-browser automation
 - AI-assisted QA automation practices
+- Enterprise-grade framework design and implementation
 
 ---
 
 ## 🧰 Technology Stack
 
 ### UI Automation
-- Playwright (TypeScript / Java / C# / Python)
+- Playwright (TypeScript, Java, C#, Python)
 - Cypress (JavaScript / TypeScript)
-- Selenium (Java-based frameworks)
+- Selenium WebDriver
+
+### API Automation
+- RestSharp
+- RestAssured
+- Playwright API Testing
+- PyTest-based API Automation
 
 ### BDD Frameworks
+- ReqNRoll (.NET)
 - SpecFlow (.NET)
-- Reqnroll (.NET)
 - Serenity BDD (Java)
 
+### Test Runners
+#### .NET
+- xUnit
+- NUnit
+- MSTest
+
+#### Java
+- JUnit
+- TestNG
+
+#### JavaScript / TypeScript
+- Playwright Test Runner
+- Mocha
+
+#### Python
+- PyTest
+
 ### Programming Languages
-- TypeScript
-- JavaScript
 - C#
 - Java
+- TypeScript
+- JavaScript
 - Python
 - Groovy
 
-### QA Engineering Practices
-- Page Object Model (POM)
-- Data-driven testing
-- Cross-browser testing (Chromium, Firefox, WebKit)
-- Parallel execution strategies
-- Test reporting (HTML, traces, screenshots)
-- CI/CD integration (GitHub Actions, Jenkins)
-- AI-assisted test automation
+### Reporting & Observability
+- Allure Reports
+- Serenity Reports
+- Azure DevOps Test Results
+- HTML Reports
+- Screenshots on Failure
+- Playwright Trace Viewer
+- Video Recording
+- Execution Logs
+
+### CI/CD & DevOps
+- Azure DevOps Pipelines
+- GitHub Actions
+- Jenkins
+- GitLab CI/CD
+
+---
+
+## 🏛️ Framework Architecture & Execution Flow
+
+The frameworks in this portfolio follow enterprise-grade automation architecture patterns designed for maintainability, scalability, reliability, and CI/CD integration.
+
+### .NET Automation Architecture
+
+```text
+Playwright
+      ↓
+Page Object Model (POM)
+      ↓
+SpecFlow / ReqNRoll
+      ↓
+xUnit / NUnit / MSTest
+      ↓
+Fluent Assertions
+      ↓
+Allure / Azure DevOps Reports
+      ↓
+Azure DevOps Pipelines / GitHub Actions
+```
+
+### Java Automation Architecture
+
+```text
+Playwright / Selenium
+      ↓
+Page Object Model (POM)
+      ↓
+Serenity BDD
+      ↓
+JUnit / TestNG
+      ↓
+Assertions
+      ↓
+Serenity Reports / Allure
+      ↓
+Jenkins / GitHub Actions
+```
+
+### JavaScript / TypeScript Automation Architecture
+
+```text
+Playwright / Cypress / Selenium
+      ↓
+Page Object Model (POM)
+      ↓
+Mocha / Playwright Test Runner
+      ↓
+Chai Assertions
+      ↓
+Allure / HTML Reports
+      ↓
+GitHub Actions / CI Pipelines
+```
+
+### Python Automation Architecture
+
+```text
+Playwright
+      ↓
+PyTest
+      ↓
+Assertions
+      ↓
+Allure / HTML Reports
+      ↓
+CI/CD Pipelines
+```
+
+### API Automation Architecture
+
+```text
+RestSharp / RestAssured / Playwright API
+      ↓
+Request Builders
+      ↓
+Response Models (DTO / POCO)
+      ↓
+Assertions & Validations
+      ↓
+Allure Reporting
+      ↓
+CI/CD Integration
+```
 
 ---
 
 ## 🏗️ Framework Features
 
 ### Architecture & Design
-- Modular and scalable test framework structure
+- Modular and scalable framework architecture
 - Page Object Model (POM) implementation
 - Reusable page classes and utilities
 - Separation of test logic and page actions
+- Configuration-driven framework design
 - Centralized test data management
+- Reusable API clients and service layers
 
 ### Automation Best Practices
 - Reliable locator strategies to reduce flaky tests
 - Data-driven and parameterized testing
 - Cross-browser execution support
+- Parallel execution strategies
 - Built-in tracing, screenshots, and reporting
 - Positive and negative scenario coverage
-- Reusable components and utilities
+- Reusable utilities and helper libraries
+- Environment-aware configuration management
+
+### Framework Design Principles
+- Separation of Concerns
+- Reusability
+- Maintainability
+- Scalability
+- Dependency Injection
+- Configuration-driven execution
+- CI/CD readiness
+- Enterprise automation standards
 
 ---
 
@@ -122,12 +222,48 @@ This portfolio demonstrates my expertise in designing and implementing robust au
 
 Across frameworks, automation covers:
 
-- Authentication & login workflows
+### UI Automation
+- Authentication and login workflows
+- User registration scenarios
 - Product inventory validation
-- Shopping cart and checkout flows
+- Search and filtering functionality
+- Shopping cart workflows
+- Checkout and payment flows
 - UI regression testing
-- API validation integrated with UI flows
-- End-to-end business process testing
+- End-to-end business processes
+
+### API Automation
+- GET, POST, PUT, PATCH, DELETE validations
+- Request and response validation
+- Authentication and authorization testing
+- Schema validation
+- Negative testing
+- Data consistency validation
+- API integration with UI workflows
+
+### Cross-Browser Testing
+- Chromium
+- Firefox
+- WebKit
+- Microsoft Edge
+
+---
+
+## ⚙️ Quality Engineering Capabilities
+
+This portfolio demonstrates practical experience with:
+
+- UI Automation Framework Design
+- API Automation Framework Design
+- BDD Automation
+- Test Strategy Implementation
+- CI/CD Integration
+- Test Data Management
+- Parallel Test Execution
+- Reporting and Observability
+- Enterprise QA Architecture
+- Automation Framework Modernization
+- Cross-Technology Automation Solutions
 
 ---
 
@@ -137,16 +273,18 @@ This portfolio demonstrates my ability to:
 
 - Design enterprise-grade automation frameworks
 - Build scalable multi-language QA solutions
-- Implement hybrid UI + API automation strategies
+- Implement modern Playwright-based automation architectures
+- Create maintainable and reusable test frameworks
+- Implement BDD-driven automation strategies
 - Integrate automation into CI/CD pipelines
 - Apply AI-assisted testing techniques
-- Deliver maintainable and production-ready test frameworks
+- Deliver production-ready quality engineering solutions
 
 ---
 
 ## 👨‍💻 Author
 
 **Devbrat Verma**  
-Senior QA Automation Engineer | SDET | Quality Engineering Lead 
+Senior QA Automation Engineer | SDET | Quality Engineering Lead
 
-Specialized in enterprise test automation, QA architecture, and DevOps-driven quality engineering using Playwright, Cypress, Serenity BDD, SpecFlow, Reqnroll, Java, C#, Python, and Groovy, with strong focus on scalable automation frameworks, CI/CD pipelines, and AI-assisted testing.
+Specialized in enterprise test automation, QA architecture, and DevOps-driven quality engineering using Playwright, Cypress, Serenity BDD, SpecFlow, ReqNRoll, Java, C#, Python, and Groovy, with strong focus on scalable automation frameworks, API automation, CI/CD pipelines, and modern quality engineering practices.
