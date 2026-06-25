@@ -12,27 +12,44 @@ This portfolio is organized into independent automation frameworks:
 
 automation-portfolio/
 
-├── dotnet-automation/
-│   ├── playwright-csharp-framework/
-│   ├── playwright-reqnroll-framework/
-│   ├── playwright-specflow-framework/
-│   └── api-restsharp-framework/
-│
-├── java-automation/
-│   ├── serenity-bdd-selenium/
-│   ├── playwright-java-framework/
-│   └── restassured-api-framework/
-│
-├── javascript-typescript-automation/
-│   ├── playwright-typescript-framework/
-│   ├── cypress-framework/
-│   └── mocha-chai-selenium/
-│
-├── python-automation/
-│   ├── playwright-pytest-framework/
-│   └── api-pytest-framework/
-│
-└── README.md
+# Automation Portfolio
+
+Collection of enterprise-grade automation frameworks built across multiple technology stacks.
+
+## .NET Automation
+
+- Playwright + C#
+- Playwright + ReqNRoll
+- Playwright + SpecFlow
+- RestSharp API Framework
+
+## Java Automation
+
+- Serenity BDD + Selenium
+- Playwright Java
+- RestAssured API Framework
+
+## JavaScript / TypeScript Automation
+
+- Playwright TypeScript
+- Cypress Framework
+- Mocha-Chai + Selenium
+
+## Python Automation
+
+- Playwright + PyTest
+- API Automation with PyTest
+
+## Key Skills Demonstrated
+
+- UI Automation
+- API Automation
+- BDD Frameworks
+- Page Object Model
+- CI/CD Integration
+- Parallel Execution
+- Reporting & Logging
+- Test Data Management
 
 Each folder represents a **separate automation framework implementation**, demonstrating scalable architecture, reusable design patterns, and enterprise QA best practices.
 
