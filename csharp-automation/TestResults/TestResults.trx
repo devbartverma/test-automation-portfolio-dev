@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="507a49c8-5485-453c-b11f-0e618d80407c" name="@192 2026-06-24 20:35:03" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-06-24T20:35:03.2794310-03:00" queuing="2026-06-24T20:35:03.2794310-03:00" start="2026-06-24T20:35:00.0049900-03:00" finish="2026-06-24T20:35:06.2399770-03:00" />
+  <TestSettings name="default" id="2fd957ba-e716-42ba-a765-b4a80061af42">
+    <Deployment runDeploymentRoot="_192_2026-06-24_20_35_03" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="bb71d34b-9d09-42e1-97f2-4b9384e852c6" testId="5f9ef803-3fc2-4969-b64e-991da07e5a73" testName="LockedOutUserShowsError" computerName="192" duration="00:00:00.5794780" startTime="2026-06-24T20:35:02.3198320-03:00" endTime="2026-06-24T20:35:02.8993090-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb71d34b-9d09-42e1-97f2-4b9384e852c6" />
+    <UnitTestResult executionId="79d8a96f-3798-4161-a61e-305edaf6b2c4" testId="3e0201ed-28cd-a151-35b4-8d170e80b496" testName="CheckoutWithOneItemCompletesSuccessfully" computerName="192" duration="00:00:00.7658509" startTime="2026-06-24T20:35:04.2543400-03:00" endTime="2026-06-24T20:35:05.0201900-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="79d8a96f-3798-4161-a61e-305edaf6b2c4" />
+    <UnitTestResult executionId="7d450311-9bcd-4550-9681-01e5650fbe4e" testId="afe520cc-2616-99b5-7e48-d1cd77b9e513" testName="ShowsSixProducts" computerName="192" duration="00:00:00.6555190" startTime="2026-06-24T20:35:05.5429560-03:00" endTime="2026-06-24T20:35:06.1984740-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d450311-9bcd-4550-9681-01e5650fbe4e" />
+    <UnitTestResult executionId="cf03a020-5cfe-4031-bed4-4828bf89c69c" testId="00814cdc-3aa1-59cb-183b-5e43bd4b90f4" testName="CanAddProductToCart" computerName="192" duration="00:00:00.5224560" startTime="2026-06-24T20:35:05.0204680-03:00" endTime="2026-06-24T20:35:05.5429230-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf03a020-5cfe-4031-bed4-4828bf89c69c" />
+    <UnitTestResult executionId="623d9303-38d1-424c-b197-973113fbbf84" testId="fe79d01b-9914-6e8b-fafb-97c639b06882" testName="CheckoutValidationShowsFirstNameError" computerName="192" duration="00:00:00.7376810" startTime="2026-06-24T20:35:03.5166350-03:00" endTime="2026-06-24T20:35:04.2543160-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="623d9303-38d1-424c-b197-973113fbbf84" />
+    <UnitTestResult executionId="6ad10342-1d83-494a-b7ac-ab0ab86bb790" testId="6075c15d-d83a-1955-3573-fead82c614b7" testName="InvalidCredentialsShowError" computerName="192" duration="00:00:01.9896360" startTime="2026-06-24T20:35:00.3292310-03:00" endTime="2026-06-24T20:35:02.3188210-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6ad10342-1d83-494a-b7ac-ab0ab86bb790" />
+    <UnitTestResult executionId="1e946b01-cf2a-41a6-b4f7-ff57616b4d17" testId="f2519c0e-f3c7-679a-10bc-e0dc22be3ffe" testName="StandardUserCanLogin" computerName="192" duration="00:00:00.6155690" startTime="2026-06-24T20:35:02.8993510-03:00" endTime="2026-06-24T20:35:03.5149200-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e946b01-cf2a-41a6-b4f7-ff57616b4d17" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="CheckoutWithOneItemCompletesSuccessfully" storage="/users/dev/documents/gitrepo/test-automation-portfolio-devbrat/csharp-automation/bin/debug/net8.0/csharpplaywright.dll" id="3e0201ed-28cd-a151-35b4-8d170e80b496">
+      <Execution id="79d8a96f-3798-4161-a61e-305edaf6b2c4" />
+      <TestMethod codeBase="/Users/dev/Documents/GitRepo/test-automation-portfolio-devbrat/csharp-automation/bin/Debug/net8.0/CSharpPlaywright.dll" adapterTypeName="executor://nunit3testexecutor/" className="CSharpPlaywright.Tests.CheckoutTests" name="CheckoutWithOneItemCompletesSuccessfully" />
+    </UnitTest>
+    <UnitTest name="StandardUserCanLogin" storage="/users/dev/documents/gitrepo/test-automation-portfolio-devbrat/csharp-automation/bin/debug/net8.0/csharpplaywright.dll" id="f2519c0e-f3c7-679a-10bc-e0dc22be3ffe">
+      <Execution id="1e946b01-cf2a-41a6-b4f7-ff57616b4d17" />
+      <TestMethod codeBase="/Users/dev/Documents/GitRepo/test-automation-portfolio-devbrat/csharp-automation/bin/Debug/net8.0/CSharpPlaywright.dll" adapterTypeName="executor://nunit3testexecutor/" className="CSharpPlaywright.Tests.AuthTests" name="StandardUserCanLogin" />
+    </UnitTest>
+    <UnitTest name="InvalidCredentialsShowError" storage="/users/dev/documents/gitrepo/test-automation-portfolio-devbrat/csharp-automation/bin/debug/net8.0/csharpplaywright.dll" id="6075c15d-d83a-1955-3573-fead82c614b7">
+      <Execution id="6ad10342-1d83-494a-b7ac-ab0ab86bb790" />
+      <TestMethod codeBase="/Users/dev/Documents/GitRepo/test-automation-portfolio-devbrat/csharp-automation/bin/Debug/net8.0/CSharpPlaywright.dll" adapterTypeName="executor://nunit3testexecutor/" className="CSharpPlaywright.Tests.AuthTests" name="InvalidCredentialsShowError" />
+    </UnitTest>
+    <UnitTest name="ShowsSixProducts" storage="/users/dev/documents/gitrepo/test-automation-portfolio-devbrat/csharp-automation/bin/debug/net8.0/csharpplaywright.dll" id="afe520cc-2616-99b5-7e48-d1cd77b9e513">
+      <Execution id="7d450311-9bcd-4550-9681-01e5650fbe4e" />
+      <TestMethod codeBase="/Users/dev/Documents/GitRepo/test-automation-portfolio-devbrat/csharp-automation/bin/Debug/net8.0/CSharpPlaywright.dll" adapterTypeName="executor://nunit3testexecutor/" className="CSharpPlaywright.Tests.InventoryTests" name="ShowsSixProducts" />
+    </UnitTest>
+    <UnitTest name="CanAddProductToCart" storage="/users/dev/documents/gitrepo/test-automation-portfolio-devbrat/csharp-automation/bin/debug/net8.0/csharpplaywright.dll" id="00814cdc-3aa1-59cb-183b-5e43bd4b90f4">
+      <Execution id="cf03a020-5cfe-4031-bed4-4828bf89c69c" />
+      <TestMethod codeBase="/Users/dev/Documents/GitRepo/test-automation-portfolio-devbrat/csharp-automation/bin/Debug/net8.0/CSharpPlaywright.dll" adapterTypeName="executor://nunit3testexecutor/" className="CSharpPlaywright.Tests.InventoryTests" name="CanAddProductToCart" />
+    </UnitTest>
+    <UnitTest name="CheckoutValidationShowsFirstNameError" storage="/users/dev/documents/gitrepo/test-automation-portfolio-devbrat/csharp-automation/bin/debug/net8.0/csharpplaywright.dll" id="fe79d01b-9914-6e8b-fafb-97c639b06882">
+      <Execution id="623d9303-38d1-424c-b197-973113fbbf84" />
+      <TestMethod codeBase="/Users/dev/Documents/GitRepo/test-automation-portfolio-devbrat/csharp-automation/bin/Debug/net8.0/CSharpPlaywright.dll" adapterTypeName="executor://nunit3testexecutor/" className="CSharpPlaywright.Tests.CheckoutTests" name="CheckoutValidationShowsFirstNameError" />
+    </UnitTest>
+    <UnitTest name="LockedOutUserShowsError" storage="/users/dev/documents/gitrepo/test-automation-portfolio-devbrat/csharp-automation/bin/debug/net8.0/csharpplaywright.dll" id="5f9ef803-3fc2-4969-b64e-991da07e5a73">
+      <Execution id="bb71d34b-9d09-42e1-97f2-4b9384e852c6" />
+      <TestMethod codeBase="/Users/dev/Documents/GitRepo/test-automation-portfolio-devbrat/csharp-automation/bin/Debug/net8.0/CSharpPlaywright.dll" adapterTypeName="executor://nunit3testexecutor/" className="CSharpPlaywright.Tests.AuthTests" name="LockedOutUserShowsError" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="5f9ef803-3fc2-4969-b64e-991da07e5a73" executionId="bb71d34b-9d09-42e1-97f2-4b9384e852c6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e0201ed-28cd-a151-35b4-8d170e80b496" executionId="79d8a96f-3798-4161-a61e-305edaf6b2c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="afe520cc-2616-99b5-7e48-d1cd77b9e513" executionId="7d450311-9bcd-4550-9681-01e5650fbe4e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="00814cdc-3aa1-59cb-183b-5e43bd4b90f4" executionId="cf03a020-5cfe-4031-bed4-4828bf89c69c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fe79d01b-9914-6e8b-fafb-97c639b06882" executionId="623d9303-38d1-424c-b197-973113fbbf84" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6075c15d-d83a-1955-3573-fead82c614b7" executionId="6ad10342-1d83-494a-b7ac-ab0ab86bb790" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2519c0e-f3c7-679a-10bc-e0dc22be3ffe" executionId="1e946b01-cf2a-41a6-b4f7-ff57616b4d17" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="7" executed="7" passed="7" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 4.6.0.0: Test execution started
+Running all tests in /Users/dev/Documents/GitRepo/test-automation-portfolio-devbrat/csharp-automation/bin/Debug/net8.0/CSharpPlaywright.dll
+   NUnit3TestExecutor discovered 7 of 7 NUnit test cases using Current Discovery mode, Non-Explicit run
+NUnit Adapter 4.6.0.0: Test execution complete
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
