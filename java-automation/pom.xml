@@ -110,8 +110,9 @@
                 <version>3.1.2</version>
                 <configuration>
                     <includes>
-                        <include>**/*Test.java</include>
-                        <include>**/*Spec.groovy</include>
+                        <include>**/*Test.class</include>
+                        <include>**/*Tests.class</include>
+                        <include>**/*Spec.class</include>
                     </includes>
                 </configuration>
             </plugin>

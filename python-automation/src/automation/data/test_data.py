@@ -3,6 +3,8 @@ class Users:
     STANDARD_PASSWORD = "secret_sauce"
     LOCKED_USERNAME = "locked_out_user"
     LOCKED_PASSWORD = "secret_sauce"
+    PERFORMANCE_GLITCH_USERNAME = "performance_glitch_user"
+    PERFORMANCE_GLITCH_PASSWORD = "secret_sauce"
     INVALID_USERNAME = "invalid_user"
     INVALID_PASSWORD = "wrong_password"
 
@@ -21,9 +23,12 @@ class ErrorMessages:
     INVALID_CREDENTIALS = "Epic sadface: Username and password do not match any user in this service"
     MISSING_USERNAME = "Epic sadface: Username is required"
     MISSING_PASSWORD = "Epic sadface: Password is required"
+    MISSING_FIRST_NAME = "Error: First Name is required"
+    MISSING_LAST_NAME = "Error: Last Name is required"
+    MISSING_POSTAL_CODE = "Error: Postal Code is required"
 
 
 class CustomerData:
-    FIRST_NAME = "Test"
-    LAST_NAME = "User"
-    POSTAL_CODE = "12345"
+    FIRST_NAME = "Devbrat"
+    LAST_NAME = "Verma"
+    POSTAL_CODE = "110001"

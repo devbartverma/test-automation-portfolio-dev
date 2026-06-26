@@ -1,68 +1,56 @@
-from playwright.sync_api import sync_playwright, Browser, BrowserContext, Page
 from typing import Optional
+
+from playwright.sync_api import (
+    sync_playwright,
+    Playwright,
+    Browser,
+    BrowserContext,
+    Page,
+)
 
 
 class PlaywrightFactory:
-    _playwright = None
-    _browser: Optional[Browser] = None
-    _context: Optional[BrowserContext] = None
-    _page: Optional[Page] = None
+    """
+    Instance-based Playwright lifecycle manager.
 
-    @classmethod
-    def create_page(cls, headless: bool = True, slow_mo: int = 0) -> Page:
-        """Create and return a new Playwright page instance."""
-        if cls._playwright is None:
-            cls._playwright = sync_playwright().start()
+    Each instance owns its own Playwright / Browser / Context / Page, so every
+    test gets a fully isolated browser session. This makes the suite safe to run
+    in parallel (e.g. ``pytest -n auto`` with pytest-xdist) — there is no shared
+    static state to clobber between workers.
+    """
 
-        if cls._browser is None:
-            cls._browser = cls._playwright.chromium.launch(
-                headless=headless,
-                args=['--disable-blink-features=AutomationControlled']
-            )
+    def __init__(self) -> None:
+        self._playwright: Optional[Playwright] = None
+        self._browser: Optional[Browser] = None
+        self._context: Optional[BrowserContext] = None
+        self._page: Optional[Page] = None
 
-        if cls._context is None:
-            cls._context = cls._browser.new_context()
+    def create_page(self, headless: bool = True, slow_mo: int = 0) -> Page:
+        """Start Playwright and return a fresh, isolated page."""
+        self._playwright = sync_playwright().start()
+        self._browser = self._playwright.chromium.launch(
+            headless=headless,
+            slow_mo=slow_mo,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+        self._context = self._browser.new_context()
+        self._page = self._context.new_page()
+        self._page.set_default_timeout(30000)
+        return self._page
 
-        if cls._page is None:
-            cls._page = cls._context.new_page()
-            cls._page.set_default_timeout(30000)
-            if slow_mo > 0:
-                cls._page.slow_mo = slow_mo
+    @property
+    def page(self) -> Optional[Page]:
+        return self._page
 
-        return cls._page
-
-    @classmethod
-    def close_page(cls):
-        """Close the current page."""
-        if cls._page is not None:
-            cls._page.close()
-            cls._page = None
-
-    @classmethod
-    def close_context(cls):
-        """Close the browser context."""
-        if cls._context is not None:
-            cls._context.close()
-            cls._context = None
-
-    @classmethod
-    def close_browser(cls):
-        """Close the browser instance."""
-        if cls._browser is not None:
-            cls._browser.close()
-            cls._browser = None
-
-    @classmethod
-    def close_playwright(cls):
-        """Close Playwright instance."""
-        if cls._playwright is not None:
-            cls._playwright.stop()
-            cls._playwright = None
-
-    @classmethod
-    def close_all(cls):
-        """Close all Playwright resources."""
-        cls.close_page()
-        cls.close_context()
-        cls.close_browser()
-        cls.close_playwright()
+    def close_all(self) -> None:
+        """Tear down all resources owned by this instance."""
+        if self._context is not None:
+            self._context.close()
+            self._context = None
+        if self._browser is not None:
+            self._browser.close()
+            self._browser = None
+        if self._playwright is not None:
+            self._playwright.stop()
+            self._playwright = None
+        self._page = None

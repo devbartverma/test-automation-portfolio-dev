@@ -6,6 +6,8 @@ public static class Users
     public const string StandardPassword = "secret_sauce";
     public const string LockedUsername = "locked_out_user";
     public const string LockedPassword = "secret_sauce";
+    public const string PerformanceGlitchUsername = "performance_glitch_user";
+    public const string PerformanceGlitchPassword = "secret_sauce";
     public const string InvalidUsername = "invalid_user";
     public const string InvalidPassword = "wrong_password";
 }
@@ -26,11 +28,14 @@ public static class ErrorMessages
     public const string InvalidCredentials = "Epic sadface: Username and password do not match any user in this service";
     public const string MissingUsername = "Epic sadface: Username is required";
     public const string MissingPassword = "Epic sadface: Password is required";
+    public const string MissingFirstName = "Error: First Name is required";
+    public const string MissingLastName = "Error: Last Name is required";
+    public const string MissingPostalCode = "Error: Postal Code is required";
 }
 
 public static class CustomerData
 {
-    public const string FirstName = "Test";
-    public const string LastName = "User";
-    public const string PostalCode = "12345";
+    public const string FirstName = "Devbrat";
+    public const string LastName = "Verma";
+    public const string PostalCode = "110001";
 }

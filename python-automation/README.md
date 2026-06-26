@@ -29,7 +29,9 @@ python-automation/
 │   ├── conftest.py                       # Pytest configuration and fixtures
 │   ├── test_auth.py                      # BDD-style authentication tests
 │   ├── test_inventory.py                 # BDD-style inventory tests
-│   └── test_checkout.py                  # BDD-style checkout tests
+│   ├── test_cart.py                      # BDD-style shopping cart tests
+│   ├── test_checkout.py                  # BDD-style checkout tests
+│   └── test_api.py                       # REST API contract tests
 ├── requirements.txt                       # Python dependencies
 ├── pytest.ini                             # Pytest configuration
 ├── .env.example                           # Environment variables example
@@ -105,20 +107,73 @@ pytest --html=report.html --self-contained-html
 pytest --headed
 ```
 
-## Test Cases
+## 🧪 Test Suite — 15 Scenarios
 
-### Authentication Tests (test_auth.py)
-- ✅ Standard user can login
-- ✅ Locked out user shows error
-- ✅ Invalid credentials show error
+Target app: **SauceDemo** (`standard_user` / `secret_sauce`). These 15 scenarios are implemented
+identically in all four language suites of this portfolio.
 
-### Inventory Tests (test_inventory.py)
-- ✅ Shows six products
-- ✅ Can add product to cart
+### 🔐 Authentication — `test_auth.py` (4)
 
-### Checkout Tests (test_checkout.py)
-- ✅ Checkout with one item completes successfully
-- ✅ Checkout validation shows first name error
+| Test | What it does | Key assertions |
+|------|--------------|----------------|
+| `test_standard_user_can_login` | Logs in with valid standard credentials | URL == inventory page; `.title` reads **Products** |
+| `test_locked_out_user_shows_error_with_icon` | Attempts login as the locked-out user | error text contains the locked-out message **and** the `svg[data-icon='times']` icon is visible |
+| `test_invalid_credentials_show_error` | Logs in with a wrong username/password | error contains "Username and password do not match…" |
+| `test_logs_out_and_blocks_inventory_access` | Logs out via burger menu, then deep-links to `inventory.html` | after logout URL == base; direct navigation redirects back to base (**route guard**) |
+
+### 📦 Inventory — `test_inventory.py` (4)
+
+| Test | What it does | Key assertions |
+|------|--------------|----------------|
+| `test_shows_six_products` | Loads the catalog after login | exactly **6** products |
+| `test_sorts_products_by_price_high_to_low` | Selects "Price (high to low)" | parsed prices are monotonically **descending**; first > last |
+| `test_sorts_products_by_name_a_to_z` | Selects "Name (A to Z)" | rendered names equal their alphabetically-ascending copy |
+| `test_opens_product_detail_for_backpack` | Opens the Backpack detail page | name == "Sauce Labs Backpack"; price == **$29.99**; description not empty; back button visible |
+
+### 🛒 Shopping Cart — `test_cart.py` (3)
+
+| Test | What it does | Key assertions |
+|------|--------------|----------------|
+| `test_shows_added_items_in_cart_with_names` | Adds Fleece Jacket + Backpack, opens cart | both product names present; line-item count == **2** |
+| `test_removes_item_from_cart_and_updates_count` | Adds 2 items, removes the Backpack | removed item gone; count == 1; badge reads **"1"** |
+| `test_preserves_cart_contents_after_continue_shopping` | Adds item, opens cart, Continue Shopping | badge still == 1 — **state survives navigation** |
+
+### 💳 Checkout — `test_checkout.py` (4)
+
+| Test | What it does | Key assertions |
+|------|--------------|----------------|
+| `test_shows_first_name_required_error` | Submits step-one with a blank first name | error == "Error: First Name is required" |
+| `test_shows_correct_subtotal_for_one_item` | Checks out a single Backpack to the overview | parsed subtotal == item price (±0.01) |
+| `test_subtotal_plus_tax_equals_total` | Checks out 2 items to the overview | **subtotal + tax == total** (2-decimal tolerance) — financial integrity |
+| `test_completes_checkout_with_two_items_and_confirmation` | Sort → add 2 → full purchase flow | sort verified → badge 2 → both items in cart → subtotal == sum → confirmation header == "Thank you for your order!" |
+
+### 🌐 REST API — `tests/test_api.py` (3)
+
+| Test | What it does | Key assertions |
+|------|--------------|----------------|
+| `test_get_post_by_id_matches_schema` | Fetches a single post — **`@pytest.mark.parametrize`** over ids 1 / 2 / 3 | status 200; `id` matches; `userId` int; `title`/`body` non-empty (schema) |
+| `test_get_all_posts_returns_full_collection` | Fetches the collection | status 200; exactly **100** items |
+| `test_create_post_returns_201_and_echoes_payload` | Creates a resource | status **201**; payload echoed; numeric `id` returned |
+
+Target: `https://jsonplaceholder.typicode.com` (via `requests`). **No browser launched.**
+
+## 🔧 CI, parallel execution & failure artifacts
+
+- **CI:** GitHub Actions runs this suite on every push/PR — see [`.github/workflows/ci.yml`](../.github/workflows/ci.yml).
+- **Parallel-safe:** each test gets its own isolated browser + context (instance-based `PlaywrightFactory`), so `pytest -n auto` (pytest-xdist) runs cleanly with no shared state.
+- **Artifacts on failure:** a `pytest_runtest_makereport` hook saves a full-page screenshot under `./screenshots`.
+- **Headless by default** (CI-friendly); use `--headed` or `HEADLESS=false` locally.
+
+## Why this is a gold-standard SDET suite
+
+- **Page Object Model** — tests read as business intent; every locator lives in one page class.
+- **Centralized, data-driven inputs** — users, URLs, products and error copy live in `data/`, never hard-coded in tests.
+- **Assertions that mean something** — not "the page loaded": exact counts, sort-order math, and a real `subtotal + tax = total` financial check.
+- **Positive *and* negative coverage** — happy paths plus locked-out, invalid credentials, form validation, and a logout route-guard.
+- **Resilient locators** — `data-test` attributes over brittle XPath, with Playwright auto-waiting (no hard sleeps → no flakiness).
+- **Deterministic & isolated** — each test logs in fresh via an autouse fixture; no shared state leaks between tests.
+- **Readable BDD intent** — every test carries a Given/When/Then docstring.
+- **Cross-language parity** — the same 15 scenarios exist in TypeScript, Python, Java and C#.
 
 ## Page Objects
 

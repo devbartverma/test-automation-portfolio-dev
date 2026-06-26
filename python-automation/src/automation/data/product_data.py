@@ -1,13 +1,47 @@
-class Products:
-    BACKPACK_NAME = "Sauce Labs Backpack"
-    BIKE_LIGHT_NAME = "Sauce Labs Bike Light"
-    FLEECE_JACKET_NAME = "Sauce Labs Fleece Jacket"
-    ONESIE_NAME = "Sauce Labs Onesie"
+from dataclasses import dataclass
 
-    BACKPACK_ADD_TO_CART = "add-to-cart-sauce-labs-backpack"
-    BIKE_LIGHT_ADD_TO_CART = "add-to-cart-sauce-labs-bike-light"
-    FLEECE_JACKET_ADD_TO_CART = "add-to-cart-sauce-labs-fleece-jacket"
-    ONESIE_ADD_TO_CART = "add-to-cart-sauce-labs-onesie"
+
+@dataclass(frozen=True)
+class Product:
+    """Immutable product model mirroring the JS-TS PRODUCTS data store."""
+    data_test: str
+    name: str
+    price: float
+
+
+class Products:
+    BACKPACK = Product(
+        data_test="add-to-cart-sauce-labs-backpack",
+        name="Sauce Labs Backpack",
+        price=29.99,
+    )
+    BIKE_LIGHT = Product(
+        data_test="add-to-cart-sauce-labs-bike-light",
+        name="Sauce Labs Bike Light",
+        price=9.99,
+    )
+    BOLT_TSHIRT = Product(
+        data_test="add-to-cart-sauce-labs-bolt-t-shirt",
+        name="Sauce Labs Bolt T-Shirt",
+        price=15.99,
+    )
+    FLEECE_JACKET = Product(
+        data_test="add-to-cart-sauce-labs-fleece-jacket",
+        name="Sauce Labs Fleece Jacket",
+        price=49.99,
+    )
+    ONESIE = Product(
+        data_test="add-to-cart-sauce-labs-onesie",
+        name="Sauce Labs Onesie",
+        price=7.99,
+    )
+    RED_TSHIRT = Product(
+        data_test="add-to-cart-test.allthethings()-t-shirt-(red)",
+        name="Test.allTheThings() T-Shirt (Red)",
+        price=15.99,
+    )
+
+    ALL = [BACKPACK, BIKE_LIGHT, BOLT_TSHIRT, FLEECE_JACKET, ONESIE, RED_TSHIRT]
 
 
 class SortOptions:

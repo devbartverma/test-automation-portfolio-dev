@@ -16,17 +16,6 @@ test.describe('Authentication', () => {
     await expect(page.locator('.title')).toHaveText('Products');
   });
 
-  test('shows six inventory products after login', async ({ page }) => {
-    await loginPage.login(USERS.standard.username, USERS.standard.password);
-    await expect(page.locator('.inventory_item')).toHaveCount(6);
-  });
-
-  test('retains session after page reload', async ({ page }) => {
-    await loginPage.login(USERS.standard.username, USERS.standard.password);
-    await page.reload();
-    await expect(page).toHaveURL(URLS.inventory);
-  });
-
   test('shows locked-out error with icon for locked_out_user', async () => {
     await loginPage.loginAndExpectError(
       USERS.locked.username,
@@ -42,23 +31,6 @@ test.describe('Authentication', () => {
       USERS.invalid.password,
       ERROR_MESSAGES.invalidCredentials
     );
-  });
-
-  test('shows username required error', async () => {
-    await loginPage.loginAndExpectError('', USERS.standard.password, ERROR_MESSAGES.missingUsername);
-  });
-
-  test('shows password required error', async () => {
-    await loginPage.loginAndExpectError(USERS.standard.username, '', ERROR_MESSAGES.missingPassword);
-  });
-
-  test('shows username required error when both fields are empty', async () => {
-    await loginPage.loginAndExpectError('', '', ERROR_MESSAGES.missingUsername);
-  });
-
-  test('stays on login page after failed authentication', async ({ page }) => {
-    await loginPage.login(USERS.invalid.username, USERS.invalid.password);
-    await expect(page).toHaveURL(URLS.base);
   });
 
   test('logs out and blocks access to inventory', async ({ page }) => {

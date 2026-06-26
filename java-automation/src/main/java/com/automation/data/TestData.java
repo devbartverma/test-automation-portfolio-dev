@@ -6,6 +6,8 @@ public class TestData {
         public static final String STANDARD_PASSWORD = "secret_sauce";
         public static final String LOCKED_USERNAME = "locked_out_user";
         public static final String LOCKED_PASSWORD = "secret_sauce";
+        public static final String PERFORMANCE_GLITCH_USERNAME = "performance_glitch_user";
+        public static final String PERFORMANCE_GLITCH_PASSWORD = "secret_sauce";
         public static final String INVALID_USERNAME = "invalid_user";
         public static final String INVALID_PASSWORD = "wrong_password";
     }
@@ -24,11 +26,14 @@ public class TestData {
         public static final String INVALID_CREDENTIALS = "Epic sadface: Username and password do not match any user in this service";
         public static final String MISSING_USERNAME = "Epic sadface: Username is required";
         public static final String MISSING_PASSWORD = "Epic sadface: Password is required";
+        public static final String MISSING_FIRST_NAME = "Error: First Name is required";
+        public static final String MISSING_LAST_NAME = "Error: Last Name is required";
+        public static final String MISSING_POSTAL_CODE = "Error: Postal Code is required";
     }
 
     public static class CustomerData {
-        public static final String FIRST_NAME = "Test";
-        public static final String LAST_NAME = "User";
-        public static final String POSTAL_CODE = "12345";
+        public static final String FIRST_NAME = "Devbrat";
+        public static final String LAST_NAME = "Verma";
+        public static final String POSTAL_CODE = "110001";
     }
 }

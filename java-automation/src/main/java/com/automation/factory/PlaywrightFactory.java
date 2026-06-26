@@ -2,61 +2,54 @@ package com.automation.factory;
 
 import com.microsoft.playwright.*;
 
+/**
+ * Thread-safe Playwright lifecycle manager.
+ *
+ * <p>State is held in {@link ThreadLocal}s, so each test thread owns an isolated
+ * Playwright / Browser / Context / Page. This lets the suite run in parallel
+ * (JUnit Platform parallel execution) without threads clobbering one another.
+ *
+ * <p>Headless is the default (CI-friendly); set {@code HEADLESS=false} to watch
+ * the browser locally.
+ */
 public class PlaywrightFactory {
-    private static Playwright playwright;
-    private static Browser browser;
-    private static BrowserContext context;
-    private static Page page;
+    private static final ThreadLocal<Playwright> PLAYWRIGHT = new ThreadLocal<>();
+    private static final ThreadLocal<Browser> BROWSER = new ThreadLocal<>();
+    private static final ThreadLocal<BrowserContext> CONTEXT = new ThreadLocal<>();
+    private static final ThreadLocal<Page> PAGE = new ThreadLocal<>();
 
     public static Page createPage() {
-        if (playwright == null) {
-            playwright = Playwright.create();
-        }
-        if (browser == null) {
-            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-        }
-        if (context == null) {
-            context = browser.newContext();
-        }
-        if (page == null) {
-            page = context.newPage();
-            page.setDefaultTimeout(30000);
-        }
+        boolean headless = !"false".equalsIgnoreCase(System.getenv("HEADLESS"));
+
+        PLAYWRIGHT.set(Playwright.create());
+        BROWSER.set(PLAYWRIGHT.get().chromium()
+            .launch(new BrowserType.LaunchOptions().setHeadless(headless)));
+        CONTEXT.set(BROWSER.get().newContext());
+
+        Page page = CONTEXT.get().newPage();
+        page.setDefaultTimeout(30000);
+        PAGE.set(page);
         return page;
     }
 
-    public static void closePage() {
-        if (page != null) {
-            page.close();
-            page = null;
-        }
-    }
-
-    public static void closeContext() {
-        if (context != null) {
-            context.close();
-            context = null;
-        }
-    }
-
-    public static void closeBrowser() {
-        if (browser != null) {
-            browser.close();
-            browser = null;
-        }
-    }
-
-    public static void closePlaywright() {
-        if (playwright != null) {
-            playwright.close();
-            playwright = null;
-        }
+    /** Current thread's page (used by the screenshot-on-failure extension). */
+    public static Page getPage() {
+        return PAGE.get();
     }
 
     public static void closeAll() {
-        closePage();
-        closeContext();
-        closeBrowser();
-        closePlaywright();
+        if (CONTEXT.get() != null) {
+            CONTEXT.get().close();
+            CONTEXT.remove();
+        }
+        if (BROWSER.get() != null) {
+            BROWSER.get().close();
+            BROWSER.remove();
+        }
+        if (PLAYWRIGHT.get() != null) {
+            PLAYWRIGHT.get().close();
+            PLAYWRIGHT.remove();
+        }
+        PAGE.remove();
     }
 }

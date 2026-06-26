@@ -1,0 +1,100 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  typescript:
+    name: TypeScript (Playwright)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: js-ts-automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report-ts
+          path: js-ts-automation/playwright-report
+          retention-days: 7
+
+  python:
+    name: Python (pytest)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python-automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python -m playwright install --with-deps chromium
+      - run: pytest -n auto
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: screenshots-python
+          path: python-automation/screenshots
+          retention-days: 7
+
+  java:
+    name: Java (Groovy + Spock)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: java-automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Install Playwright browsers
+        run: >
+          mvn -B compile
+          org.codehaus.mojo:exec-maven-plugin:3.1.0:java
+          -Dexec.mainClass=com.microsoft.playwright.CLI
+          -Dexec.args="install --with-deps chromium"
+      - run: mvn -B test
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: screenshots-java
+          path: java-automation/target/screenshots
+          retention-days: 7
+
+  dotnet:
+    name: .NET (NUnit)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dotnet-automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: dotnet build --configuration Debug
+      - name: Install Playwright browsers
+        run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps chromium
+      - run: dotnet test --no-build --logger "trx;LogFileName=results.trx"
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: screenshots-dotnet
+          path: dotnet-automation/**/screenshots
+          retention-days: 7

@@ -42,11 +42,17 @@ public class LoginPage {
     public void loginAndExpectError(String username, String password, String expectedText) {
         login(username, password);
         assertTrue(getErrorMessage().isVisible(), "Error message should be visible");
-        assertTrue(getErrorMessage().textContent().contains(expectedText), 
+        assertTrue(getErrorMessage().textContent().contains(expectedText),
             "Error message should contain: " + expectedText);
     }
 
     public void assertLoggedIn() {
         assertEquals(TestData.Urls.INVENTORY, page.url(), "User should be redirected to inventory page");
+    }
+
+    /** Assert the X icon exists on the error banner (visual cue for recruiters) */
+    public void assertErrorIconVisible() {
+        Locator icon = getErrorMessage().locator("svg[data-icon='times']");
+        assertTrue(icon.isVisible(), "Error icon should be visible on the error banner");
     }
 }
