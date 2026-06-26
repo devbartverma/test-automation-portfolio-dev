@@ -105,8 +105,6 @@ pytest --html=report.html --self-contained-html        # report (pip install pyt
 - GET collection — status + full-collection size
 - POST resource — `201`, payload echo, and a generated numeric id
 
-*Every test, with its assertions and the gold-standard rationale, is documented in each [folder README](#️-frameworks).*
-
 ---
 
 ## ⚡ Engineering Practices
@@ -125,7 +123,7 @@ pytest --html=report.html --self-contained-html        # report (pip install pyt
 
 ## 👨‍💻 Author
 
-**Devbrat Verma** — QA Automation Engineer  
+**Devbrat Verma** — Senior QA Automation Engineer  
 [GitHub](https://github.com/devbartverma)
 
 ---
