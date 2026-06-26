@@ -1,6 +1,6 @@
 # Test Automation Portfolio – Devbrat Verma
 
-[![TypeScript (Playwright)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/typescript.yml/badge.svg)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/typescript.yml)
+[![TypeScript (Playwright Test)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/typescript.yml/badge.svg)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/typescript.yml)
 [![Python (pytest)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/python.yml/badge.svg)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/python.yml)
 [![Java (JUnit 5 + Spock)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/java.yml/badge.svg)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/java.yml)
 [![.NET (NUnit)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/dotnet.yml/badge.svg)](https://github.com/devbartverma/test-automation-portfolio-devbrat/actions/workflows/dotnet.yml)

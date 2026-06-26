@@ -1,4 +1,4 @@
-name: TypeScript (Playwright)
+name: TypeScript (Playwright Test)
 
 on:
   push:
