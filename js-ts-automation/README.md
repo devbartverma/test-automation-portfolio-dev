@@ -51,10 +51,14 @@ npx playwright install   # one-time browser download
 ## Running Tests
 
 ```bash
-npx playwright test                      # all tests, all browsers
+npm test                 # all tests (UI cross-browser + API)
+npm run test:ui          # UI suites only
+npm run test:api         # API suite only
+npm run report           # open the HTML report
+
+# or call Playwright directly:
 npx playwright test auth.spec.ts         # a single spec
 npx playwright test --project=chromium   # one browser
-npx playwright show-report               # open the HTML report
 ```
 
 ## 🧪 Test Suite — 15 Scenarios
