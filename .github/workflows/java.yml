@@ -1,4 +1,4 @@
-name: Java (Spock)
+name: Java (JUnit 5 + Spock)
 
 on:
   push:
