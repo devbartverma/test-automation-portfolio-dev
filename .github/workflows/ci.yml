@@ -91,7 +91,7 @@ jobs:
       - run: dotnet build --configuration Debug
       - name: Install Playwright browsers
         run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps chromium
-      - run: dotnet test --no-build --logger "trx;LogFileName=results.trx"
+      - run: dotnet test --no-build --logger "trx;LogFileName=results.trx" --logger "console;verbosity=detailed"
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -113,7 +113,7 @@ jobs:
       - run: dotnet build --configuration Debug
       - name: Install Playwright browsers
         run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps chromium
-      - run: dotnet test --no-build --logger "trx;LogFileName=results.trx"
+      - run: dotnet test --no-build --logger "trx;LogFileName=results.trx" --logger "console;verbosity=detailed"
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
