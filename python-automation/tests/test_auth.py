@@ -66,6 +66,6 @@ class TestAuthentication:
         page.get_by_role("link", name="Logout").click()
 
         # Then
-        assert page.url == Urls.BASE
+        assert page.url.rstrip("/") == Urls.BASE
         page.goto(Urls.INVENTORY)
-        assert page.url == Urls.BASE
+        assert page.url.rstrip("/") == Urls.BASE

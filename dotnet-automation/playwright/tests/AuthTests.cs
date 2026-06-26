@@ -48,9 +48,9 @@ public class AuthTests : BasePageTest
         await _loginPage.LoginAsync(Users.StandardUsername, Users.StandardPassword);
         await Page.GetByRole(AriaRole.Button, new() { Name = "Open Menu" }).ClickAsync();
         await Page.GetByRole(AriaRole.Link, new() { Name = "Logout" }).ClickAsync();
-        Assert.That(Page.Url, Is.EqualTo(Urls.Base));
+        Assert.That(Page.Url.TrimEnd('/'), Is.EqualTo(Urls.Base));
 
         await Page.GotoAsync(Urls.Inventory);
-        Assert.That(Page.Url, Is.EqualTo(Urls.Base));
+        Assert.That(Page.Url.TrimEnd('/'), Is.EqualTo(Urls.Base));
     }
 }

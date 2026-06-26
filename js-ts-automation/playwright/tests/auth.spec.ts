@@ -37,8 +37,8 @@ test.describe('Authentication', () => {
     await loginPage.login(USERS.standard.username, USERS.standard.password);
     await page.getByRole('button', { name: 'Open Menu' }).click();
     await page.getByRole('link', { name: 'Logout' }).click();
-    await expect(page).toHaveURL(URLS.base);
+    await expect(page).toHaveURL(/www\.saucedemo\.com\/?$/);
     await page.goto(URLS.inventory);
-    await expect(page).toHaveURL(URLS.base);
+    await expect(page).toHaveURL(/www\.saucedemo\.com\/?$/);
   });
 });
